@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.d7kj.annotation.Function;
+
 @Controller
 public class HelloworldController {
 	
@@ -14,6 +16,7 @@ public class HelloworldController {
 	}
 	// http://127.0.0.1:8080/sayhello.html?name=springboot
 	@RequestMapping("/sayhello.html")
+	@Function("hehe")
 	public @ResponseBody String say(String name){
 		return "hello "+name;
 	}
