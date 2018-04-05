@@ -53,6 +53,6 @@ public class JavaBeanController {
 	@PostMapping("/savejsonorder.json")
 	@ResponseBody
 	public String saveOrderByJson(@RequestBody User user) {
-		return "success";
+		return user.getName();
 	}
 }
