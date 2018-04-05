@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Aspect
 public class AOPConfig {
 
+	/// Controller 的所有方法在执行前后都会进入functionAccessCheck方法
 	@Around("@within(org.springframework.stereotype.Controller) ")
 	public Object simpleAop(final ProceedingJoinPoint pjp) throws Throwable {
 		try {

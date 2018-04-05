@@ -3,9 +3,13 @@ package com.d7kj.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.d7kj.entity.User;
 import com.d7kj.service.UserService;
 
+/// 自动生成bean
+@Service
 public class UserServiceImpl implements UserService {
 
 	@Override
@@ -28,7 +32,7 @@ public class UserServiceImpl implements UserService {
 			user.setName("name" + i);
 			list.add(user);
 		}
-		return null;
+		return list;
 	}
 
 	@Override
