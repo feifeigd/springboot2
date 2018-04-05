@@ -33,4 +33,14 @@ public class BeetlController {
 		view.setViewName("/userInfo.html");
 		return view;
 	}
+	
+	/// 通过HTTP参数传递 方法参数
+	/// http://localhost/beetl/showuser2.html?id=3
+	@GetMapping("/showuser2.html")
+	public ModelAndView showUserInfo2( int id, ModelAndView view) {		
+		User user = userService.getUserById(id);
+		view.addObject("user", user);
+		view.setViewName("/userInfo.html");
+		return view;
+	}
 }
