@@ -34,6 +34,11 @@
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
     </dependency>
+    <!-- Freemarker模板引擎 ,后缀 .ftl-->
+    <dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-freemarker</artifactId>
+    </dependency>
   </dependencies>
   
   <build>
