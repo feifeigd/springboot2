@@ -1,0 +1,2 @@
+// 公共的变量
+var session = {user:{name:"feifeigd"}};
