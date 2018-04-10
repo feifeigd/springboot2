@@ -1,2 +1,4 @@
 // 公共的变量
 var session = {user:{name:"feifeigd"}};
+
+var title = "未定义标题";
