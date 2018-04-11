@@ -34,11 +34,22 @@
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
     </dependency>
-    <!-- Freemarker模板引擎 ,后缀 .ftl-->
+    <!-- Freemarker模板引擎 ,后缀 .ftl
     <dependency>
     	<groupId>org.springframework.boot</groupId>
     	<artifactId>spring-boot-starter-freemarker</artifactId>
-    </dependency>
+    </dependency>-->
+    <!-- 事务支持 
+    <dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency> -->
+    <!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
+	<dependency>
+	    <groupId>commons-lang</groupId>
+	    <artifactId>commons-lang</artifactId>
+	    <version>2.6</version>
+	</dependency>
   </dependencies>
   
   <build>
