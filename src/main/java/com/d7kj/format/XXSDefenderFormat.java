@@ -6,6 +6,8 @@ import org.beetl.core.Format;
 /// 防止XSS攻击
 public class XXSDefenderFormat implements Format {
 
+	// 使用
+	// ${"<script>alert(8)</script>", xss}
 	@Override
 	public Object format(Object data, String pattern) {
 		if(data instanceof String) {
