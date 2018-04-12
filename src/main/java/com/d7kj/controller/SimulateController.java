@@ -18,6 +18,10 @@ public class SimulateController {
 	// http://localhost/api/simulatejson.html
 	@RequestMapping("/api/**")
 	public void simulateJson(HttpServletRequest request, HttpServletResponse response) {
+		// 中文显示问号的问题
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/json;charset=UTF-8");
+		
 		webSimulate.execute(request, response);
 	}
 	
@@ -25,6 +29,10 @@ public class SimulateController {
 	/// http://localhost/simulateview.html
 	@RequestMapping("/**/*.html")
 	public void simulateView(HttpServletRequest request, HttpServletResponse response) {
+		// 中文显示问号的问题
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=UTF-8");
+		
 		webSimulate.execute(request, response);
 	}
 }
