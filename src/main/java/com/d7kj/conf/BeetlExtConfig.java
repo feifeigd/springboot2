@@ -6,7 +6,11 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 
 import org.beetl.core.GroupTemplate;
+import org.beetl.ext.spring.BeetlGroupUtilConfiguration;
+import org.beetl.ext.spring.BeetlSpringViewResolver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.d7kj.util.SimpleFunction;
@@ -34,5 +38,24 @@ public class BeetlExtConfig {
 			groupTemplate.setSharedVars(sharedVars);
 		}
 		sharedVars.put("jsVersion", System.currentTimeMillis());
+	}
+	
+	// MVC视图模板后缀路径, 从配置文件读取
+	@Value("${beetl.templatesViewSuffix}")
+	private String templatesViewSuffix;
+
+	/**
+	 * 视图模板配置
+	 * 
+	 * @return
+	 */
+	@Bean(name = "beetlViewResolver")
+	public BeetlSpringViewResolver getBeetlSpringViewResolver(BeetlGroupUtilConfiguration beetlGroupUtilConfiguration) {
+		BeetlSpringViewResolver beetlSpringViewResolver = new BeetlSpringViewResolver();
+		beetlSpringViewResolver.setContentType("text/html;charset=UTF-8");
+		beetlSpringViewResolver.setOrder(0);
+		beetlSpringViewResolver.setSuffix(templatesViewSuffix);
+		beetlSpringViewResolver.setConfig(beetlGroupUtilConfiguration);
+		return beetlSpringViewResolver;
 	}
 }

@@ -2,6 +2,8 @@ package com.d7kj.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,12 +18,14 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping("/user/queryUser.html")
-	public ModelAndView queryUsers() {
+	@RequestMapping("/queryUser.html")
+	public ModelAndView queryUsers(HttpServletRequest request) {
 		ModelAndView view = new ModelAndView();
 		view.setViewName("/user.html#userPage");
 		List<User> users = userService.allUser();
 		view.addObject("userList", users);
 		return view;
+		//request.setAttribute("userList", users);
+		//return "/user.html#userPage";
 	}
 }

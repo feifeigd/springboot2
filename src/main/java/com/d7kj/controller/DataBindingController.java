@@ -39,7 +39,7 @@ public class DataBindingController {
 
 			@Override
 			public void validate(Object target, Errors errors) {
-				WorkInfoForm form = (WorkInfoForm)target;
+				//WorkInfoForm form = (WorkInfoForm)target;
 			}			
 		});
 	}

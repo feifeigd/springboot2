@@ -2,11 +2,12 @@
 @layout("/common/layout.html", {"title":"用户列表"}){
 用户列表:
 	<div id="pageContainer">
-	@ #ajax userPage:{
+	@ #ajax userPage: {
 		<ul>
-			@for(user in userList!){
-				@ print(userLP.index);
-				<li>${user.name}</li> 
+			@for(u in userList!){
+				<li>${u.name}</li> 
+			@}elsefor{
+				无记录
 			@}
 		</ul>
 	@}
@@ -14,7 +15,7 @@
 	<a href="#" onclick="onQueryUsers();">加载用户列表</a>
 	<script>
 		function onQueryUsers(){
-			$("#pageContainer").load("/user/queryUser.html");
+			$("#pageContainer").load("/queryUser.html");
 		}
 	</script>
 @}
