@@ -3,15 +3,28 @@ package com.d7kj.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.beetl.sql.core.SQLManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+//import org.springframework.transaction.annotation.Transactional;
 
+import com.d7kj.dao.UserDao;
 import com.d7kj.entity.User;
 import com.d7kj.service.UserService;
 
 /// 自动生成bean
+/// Service是个bean
 @Service
+/// 添加事务
+//@Transactional
 public class UserServiceImpl implements UserService {
 
+	//@Autowired
+	SQLManager sqlManager;
+	
+	@Autowired
+	UserDao userDao;
+	
 	@Override
 	public List<User> allUser() {
 		return sampleUser(5);
@@ -19,8 +32,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserById(int id) {
-		User user = sampleUser(1).get(0);
-		user.setId(id);
+		User user = userDao.unique(id);
 		return user;
 	}
 	
