@@ -27,5 +27,17 @@ public class DataSourceConfig {
 		BeetlSqlDataSource ds = new BeetlSqlDataSource();
 		ds.setMasterSource(dataSource);
 		return ds;
-	}//*/
+	}
+	
+//	@Bean
+//	public BeetlSqlCustomize beetlSqlCustomize() {
+//		return new BeetlSqlCustomize() {
+//			@Override
+//			public void customize(SqlManagerFactoryBean sqlManager) {
+//				sqlManager.setDbStyle(new MySqlStyle());
+//				
+//			}
+//			
+//		};
+//	}
 }
