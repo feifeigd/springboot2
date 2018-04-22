@@ -7,8 +7,9 @@ import org.beetl.sql.core.mapper.BaseMapper;
 
 import com.d7kj.entity.User;
 
-// .md文件路径
+// /template/sql/www.user.md 文件路径
 @SqlResource("www.user")
 public interface UserDao extends BaseMapper<User> {
+	// 方法名跟md文件中的===前面那行名字一样
 	public List<User> selectSample(User query);
 }

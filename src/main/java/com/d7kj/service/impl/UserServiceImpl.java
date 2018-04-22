@@ -32,7 +32,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserById(int id) {
-		User user = userDao.unique(id);
+		//User user = userDao.unique(id);	// 不存在,抛异常
+		User user = userDao.single(id);	// 不存在,返回null
 		return user;
 	}
 	
@@ -51,6 +52,13 @@ public class UserServiceImpl implements UserService {
 	public void updateUser(int id, Integer type) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<User> select(String name) {
+		User paras = new User();
+		paras.setName(name);
+		return userDao.selectSample(paras);
 	}
 
 }
