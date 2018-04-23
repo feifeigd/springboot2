@@ -40,7 +40,9 @@ layui.config({base:'js/'});	// layui模块扩展
 		<ul class="layui-nav layui-layout-right">
 			<li class="layui-nav-item">
 				<a href="javascript:;">
-					<img alt="" class="layui-nav-img" src="http://static.wycq.521g.com/admin/img/wy.jpg">飞飞
+					<!-- <img alt="" class="layui-nav-img" src="http://static.wycq.521g.com/admin/img/wy.jpg"> -->
+					<div class="layui-icon" style="font-size: 20px; color: #1E9FFF;">&#xe60c;飞飞</div>
+					
 				</a>
 				<dl class="layui-nav-child">
 					<dd><a href="">基本资料</a></dd>
@@ -82,8 +84,16 @@ layui.config({base:'js/'});	// layui模块扩展
 	
 	<!-- 右部页面内容 -->
 	<div class="layui-body">
+	
 		<!-- 内容主体区域 -->
 		<div style="padding: 15px;">内容主体区域</div>
+		
+		<div class="layui-anim layui-anim-rotate">循环动画</div>
+		
+		<!-- 按钮 -->
+		<button class="layui-btn layui-btn-radius">一个标准的按钮</button>
+		<a href="http://www.layui.com" class="layui-btn">一个可跳转的按钮</a>
+		
 		<script type="text/javascript">
 		for(var i = 0; i < 60; ++i)document.write('<br/>填充内容');
 		document.write('<br/>结束内容');

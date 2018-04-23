@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<title>layui</title>
+<link rel="stylesheet" href="layui/css/layui.css"/>
+<script src="layui/layui.js"></script>
+
+<script type="text/javascript">
+layui.config({base:'js/'});	// layui模块扩展
+layui.define(function(exports){
+	// 导出为 layui.demo()
+	exports('demo', function(){
+		alert('Hello, ffff');
+	});
+});
+</script>
+
+</head>
+
+<body>
+
+ffffff
+<script>
+layui.use(['layer', 'form'], function(){
+	var layer = layui.layer
+		,form = layui.form;
+	layer.msg('Hello World');
+});
+layui.use([], function(){
+	//layui.demo();
+});
+layui.use(['mymod'], function(){
+	layui.mymod.hello('888888888888');
+});
+var device = layui.device();
+console.log(device);
+// layui.hint().error('出错啦');
+
+</script>
+
+<div class="layui-tab">
+	<ul class="layui-tab-title">
+		<li class="layui-this">标题1</li>
+		<li>标题2</li>
+		<li>标题3</li>		
+	</ul>
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">内容1</div>
+		<div>内容2</div>
+		<div>内容3</div>
+	</div>
+</div>
+<button >登入</button>    
+</body>
+
+</html>
