@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<title>layui 时间线</title>
+<link rel="stylesheet" href="layui/css/layui.css"/>
+<script src="layui/layui.js"></script>
+
+<script type="text/javascript">
+layui.config({base:'js/'});	// layui模块扩展
+
+</script>
+
+</head>
+
+<body class="layui-layout-body">
+
+<ul class="layui-timeline">
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title">8月18日</h2>
+			<p>
+				aaaaaaaaaaaaaaaaaaaaaaaaaaa
+			</p>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title">8月16日</h2>
+			<p>
+				bbbbbbbbbbbbbbbbbbbbbbbbbbbb
+			</p>
+			<ul>
+				<li>登高</li>
+				<li>秋风</li>
+			</ul>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+    	<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+    	<div class="layui-timeline-content layui-text">
+      		<div class="layui-timeline-title">过去</div>
+    	</div>
+  	</li>
+</ul>
+
+<script>
+
+// 加载element模块
+layui.use('element' , function(){
+	var element = layui.element;
+
+});
+
+</script>
+
+</body>
+
+</html>
+
