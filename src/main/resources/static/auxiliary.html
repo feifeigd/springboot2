@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<title>layui 辅助</title>
+<link rel="stylesheet" href="layui/css/layui.css"/>
+<script src="layui/layui.js"></script>
+
+<script type="text/javascript">
+layui.config({base:'js/'});	// layui模块扩展
+
+</script>
+
+</head>
+
+<body class="layui-layout-body">
+
+<blockquote class="layui-elem-quote">引用区域的文字</blockquote>
+<blockquote class="layui-elem-quote layui-quote-nm">引用区域的文字</blockquote>
+<fieldset class="layui-elem-field">
+  <legend>字段集区块 - 默认风格</legend>
+  <div class="layui-field-box">
+    内容区域
+  </div>
+</fieldset>
+ 
+<fieldset class="layui-elem-field layui-field-title">
+  <legend>字段集区块 - 横线风格</legend>
+  <div class="layui-field-box">
+    内容区域
+  </div>
+</fieldset>
+你可以把它看作是一个有标题的横线<br>
+
+默认分割线
+<hr>
+ 
+赤色分割线
+<hr class="layui-bg-red">
+ 
+橙色分割线
+<hr class="layui-bg-orange">
+ 
+墨绿分割线
+<hr class="layui-bg-green">
+ 
+青色分割线
+<hr class="layui-bg-cyan">
+ 
+蓝色分割线
+<hr class="layui-bg-blue">
+ 
+黑色分割线
+<hr class="layui-bg-black">
+ 
+灰色分割线
+<hr class="layui-bg-gray">
+<script>
+
+// 加载element模块
+layui.use('element' , function(){
+	var element = layui.element;
+
+});
+
+</script>
+
+</body>
+
+</html>
+
+
