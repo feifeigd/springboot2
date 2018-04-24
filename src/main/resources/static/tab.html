@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<title>layui 选项卡</title>
+<link rel="stylesheet" href="layui/css/layui.css"/>
+<script src="layui/layui.js"></script>
+
+<script type="text/javascript">
+layui.config({base:'js/'});	// layui模块扩展
+
+</script>
+
+</head>
+
+<body class="layui-layout-body">
+
+<div class="layui-tab layui-tab-card"  lay-allowClose="true" lay-filter="test1">
+	<ul class="layui-tab-title">
+		<li class="layui-this" lay-id="111">网站设置</li>
+		<li lay-id="222">用户管理</li>
+		<li lay-id="333">权限分配</li>
+		<li lay-id="444">商品管理</li>
+		<li lay-id="555">订单管理</li>
+	</ul>
+	<div class="layui-tab-content">
+		<div class="layui-tab-item layui-show">内容1</div>
+		<div class="layui-tab-item">内容2</div>
+		<div class="layui-tab-item">内容3</div>
+		<div class="layui-tab-item">内容4</div>
+		<div class="layui-tab-item">内容5</div>
+	</div>
+</div>
+
+<script>
+
+// 加载element模块
+layui.use('element' , function(){
+	var element = layui.element;
+	// 根据hash切换选项卡
+	var layid = location.hash.replace(/^#test1=/, '');
+	element.tabChange('test1', layid);	// http://a.com#test1=222
+	element.on('tab(test1)', function(){
+		location.hash = 'test1=' + this.getAttribute('lay-id');
+	});
+});
+
+</script>
+
+</body>
+
+</html>
+
