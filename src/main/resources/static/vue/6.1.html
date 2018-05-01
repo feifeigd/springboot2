@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="utf-8"> 
+<title>v-model基本用法</title>
+</head>
+<body>
+
+<div id="app">
+	输入框:
+	<input type="text" placeholder="输入..." v-model="message">
+	<p>输入的内容是:{{message}}</p>
+	<br>文本域:
+	<textarea rows="" cols="" placeholder="输入..." v-model="text"></textarea>
+	<p>输入的内容是:</p>
+	<p style="white-space: pre;">{{text}}</p>
+	<br>单项按钮:
+	<input type="radio" :checked="picked">
+	<label>单项按钮</label>
+	<br><input type="radio" v-model="picked" value="html" id="html"><label for="html">HTML</label>
+	<br><input type="radio" v-model="picked" value="js" id="js"><label for="js">JavaScript</label>
+	<br><input type="radio" v-model="picked" value="css" id="css"><label for="css">CSS</label>	
+	<br><p>选择的项是:{{picked}}</p>
+	<br>复选框:
+	<input type="checkbox" v-model="checked" id="checked"><label for="checked">选择状态:{{checked}}</label>
+	<br>选择列表:
+	<select v-model="selected" multiple>
+		<option v-for="option in options" :value="option.value">{{option.text}}</option>
+	</select>
+	<p>选择的项是:{{selected}}</p>
+</div>
+
+<script type="text/javascript" src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script type="text/javascript" >
+var app = new Vue({
+	el: '#app'
+	,data:{
+		message:''
+		,text:''
+		,picked: 'js'
+		,checked: false
+		,selected : ['html', 'js', ]
+		,options:[
+			{text:'HTML', value: 'html', }
+			,{text:'JavaScript', value: 'js', }
+			,{text:'CSS', value: 'css', }
+		]
+	}
+});
+
+</script>
+
+</body>
+
+</html>
