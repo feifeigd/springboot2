@@ -6,7 +6,8 @@ beetl:
     templatesViewSuffix: 
 beetlsql:
     basePackage: com.d7kj.dao
-    sqlPath: /sql
+    dbStyle: org.beetl.sql.core.db.PostgresStyle
+    sqlPath: /sql    
 beetl-beetlsql:
     dev: true
 
@@ -34,10 +35,19 @@ server:
 spring:
     # 数据源
     datasource:
-        url: jdbc:mysql://127.0.0.1:3306/orm?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
-        username: root
-        password: 123456
-        driver-class-name: com.mysql.jdbc.Driver
+        # mysql
+        #url: jdbc:mysql://127.0.0.1:3306/orm?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+        #url: jdbc:mysql://192.168.0.6:3306/orm?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+        #username: root
+        #password: 123456abc
+        #driver-class-name: com.mysql.jdbc.Driver
+        #postgresql
+        platform: postgres
+        url: jdbc:postgresql://192.168.0.3:5432/postgres
+        username: postgres
+        password: mypwd
+        driver-class-name: org.postgresql.Driver
+        
     # spring data jpa 打印sql语句
     jpa: 
         show-sql: true
