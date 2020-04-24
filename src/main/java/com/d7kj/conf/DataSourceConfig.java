@@ -15,6 +15,8 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 public class DataSourceConfig {
+	/// @param env 环境上下文
+	/// 包含application.yml配置属性/JVM系统属性和操作系统环境变量的
 	@Bean(name="dataSource")
 	public DataSource datasource(Environment env) {
 		HikariDataSource ds = new HikariDataSource();
