@@ -51,6 +51,13 @@ spring:
     # spring data jpa 打印sql语句
     jpa: 
         show-sql: true
+
+    redis:
+        host: 127.0.0.1
+        #password: 123456
+        #port: 6379
+        pool:
+            max-active: 8
     servlet:
         # 文件上传
         # 文件保存的路径
