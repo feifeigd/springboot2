@@ -9,6 +9,12 @@
   <artifactId>helloworld</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
+	  <!-- 查ip -->
+	  <dependency>
+		  <groupId>org.lionsoul</groupId>
+		  <artifactId>ip2region</artifactId>
+		  <version>1.4</version>
+	  </dependency>
   	<!-- 热部署 -->
   	<dependency>
   		<groupId>org.springframework.boot</groupId>
