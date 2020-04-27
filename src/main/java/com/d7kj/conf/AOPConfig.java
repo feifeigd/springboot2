@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.context.annotation.Configuration;
 
 // spring管理配置bean
+// 这个注解，在程序启动的时候会执行
 @Configuration
 // 切面类
 @Aspect

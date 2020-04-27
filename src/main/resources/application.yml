@@ -21,7 +21,7 @@ endpoints:
 management:
     endpoints:
         web:
-            base-path: manage
+            base-path: /manage
     server:
         port: 8081
                
