@@ -3,10 +3,11 @@ package com.d7kj.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.d7kj.service.CreditSystemService;
 import org.beetl.sql.core.SQLManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-//import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.d7kj.dao.UserDao;
 import com.d7kj.entity.User;
@@ -16,12 +17,15 @@ import com.d7kj.service.UserService;
 /// Service是个bean
 @Service
 /// 添加事务
-//@Transactional
+@Transactional
 public class UserServiceImpl implements UserService {
 
 	//@Autowired
 	SQLManager sqlManager;
-	
+
+	@Autowired
+	CreditSystemService creditSystemService;
+
 	@Autowired
 	UserDao userDao;
 	
@@ -59,6 +63,17 @@ public class UserServiceImpl implements UserService {
 		User paras = new User();
 		paras.setName(name);
 		return userDao.selectSample(paras);
+	}
+
+	@Override
+	public int getCredit(int userId) {
+		return creditSystemService.getUserCredit(userId);
+	}
+
+	@Override
+	public boolean updateUser(User user) {
+		int ret = userDao.updateById(user);
+		return 1 == ret;
 	}
 
 }

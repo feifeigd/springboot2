@@ -9,4 +9,6 @@ public interface UserService {
 	public User getUserById(int id);
 	public void updateUser(int id, Integer type);
 	public List<User> select(String name);
+	public int getCredit(int userId);
+	public boolean updateUser(User user);
 }

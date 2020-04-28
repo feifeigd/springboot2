@@ -36,4 +36,13 @@ public class UserController {
 		User user = userService.getUserById(id);
 		return user;
 	}
+
+	@RequestMapping("/user/{id}/{name}")
+	public String updateUser(@PathVariable Integer id, @PathVariable String name){
+		User user = new User();
+		user.setId(id);
+		user.setName(name);
+		userService.updateUser(user);
+		return "{\"success\":true}";
+	}
 }
