@@ -7,7 +7,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableCaching
-@EnableScheduling	// 发现注解@Scheduled的任务并后台执行
 public class Application {
 
 	/// 抄袭入口点
