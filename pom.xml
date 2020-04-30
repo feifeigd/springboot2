@@ -82,17 +82,17 @@
 	    </dependency>
 	
 	<!-- 数据库驱动 https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-	<!-- 
+	<!-- -->
 	<dependency>
 	    <groupId>mysql</groupId>
 	    <artifactId>mysql-connector-java</artifactId>
-	</dependency>-->
+	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+	<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql
 	<dependency>
 	    <groupId>org.postgresql</groupId>
 	    <artifactId>postgresql</artifactId>
-	</dependency>
+	</dependency>-->
 	
 	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 	<dependency>

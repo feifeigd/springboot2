@@ -19,7 +19,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 @RunWith(SpringRunner.class)
-//@SpringBootTest
 // 需要模拟测试的 Controller
 @WebMvcTest(UserController.class)
 public class UserControllerTest {
