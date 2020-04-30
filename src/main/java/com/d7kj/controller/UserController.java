@@ -32,9 +32,10 @@ public class UserController {
 	}
 	
 	@RequestMapping("/user/{id}")
-	public @ResponseBody User say(@PathVariable int id) {
-		User user = userService.getUserById(id);
-		return user;
+	public @ResponseBody String say(@PathVariable int id) {
+		//User user = userService.getUserById(id);
+		//return user;
+		return String.valueOf(userService.getCredit(id));
 	}
 
 	@RequestMapping("/user/{id}/{name}")

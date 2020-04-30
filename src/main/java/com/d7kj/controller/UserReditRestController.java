@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /// 注解RestController相当于注解Controller和ResponseBody的合体。
-@RestController
+//@RestController
 public class UserReditRestController {
 
     @RequestMapping(value = "/usercredit/{id}")
