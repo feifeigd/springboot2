@@ -46,4 +46,10 @@ public class UserController {
 		userService.updateUser(user);
 		return "{\"success\":true}";
 	}
+
+	@RequestMapping("/user/query/{name}")
+	public @ResponseBody List<User> say(@PathVariable String name){
+		List<User> users = userService.select(name);
+		return users;
+	}
 }
