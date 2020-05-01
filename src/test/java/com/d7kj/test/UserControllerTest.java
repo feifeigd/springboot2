@@ -1,6 +1,7 @@
 package com.d7kj.test;
 
 import com.d7kj.controller.UserController;
+import com.d7kj.entity.User;
 import org.mockito.BDDMockito;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
@@ -36,7 +37,17 @@ public class UserControllerTest {
         // 模拟 userService
         given(userService.getCredit(anyInt())).willReturn(100);
         // http 调用
-        /*mvc.perform(MockMvcRequestBuilders.get("/user/{id}", userId))
-                .andExpect(MockMvcResultMatchers.content().string(String.valueOf(expectedCredit)));*/
+        mvc.perform(MockMvcRequestBuilders.get("/user/{id}", userId))
+                .andExpect(MockMvcResultMatchers.content().string(String.valueOf(expectedCredit)));//*/
+    }
+
+    public void updateUser() throws Exception {
+        int userId = 1;
+        String name = "hili";
+        int expectedCredit = 100;
+        given(userService.updateUser(any(User.class))).willReturn(true);
+        String path = "$.success";  // json路径
+        mvc.perform(MockMvcRequestBuilders.get("/user/{id}/{name}", userId, name))
+                .andExpect(MockMvcResultMatchers.jsonPath(path).value(true));
     }
 }

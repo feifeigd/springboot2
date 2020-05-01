@@ -6,9 +6,13 @@ beetl:
     templatesViewSuffix: 
 beetlsql:
     basePackage: com.d7kj.dao
-    dbStyle: org.beetl.sql.core.db.PostgresStyle
+    dbStyle: org.beetl.sql.core.db.MySqlStyle
+    #dbStyle: org.beetl.sql.core.db.PostgresStyle
+    daoSuffix: Dao
+    nameConversion: org.beetl.sql.core.UnderlinedNameConversion
     sqlPath: /sql    
 beetl-beetlsql:
+    # 打印 SQL
     dev: true
 
 # 启用所有监控
