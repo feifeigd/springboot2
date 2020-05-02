@@ -20,7 +20,11 @@ endpoints:
     default:
         web:
             enabled: true
-            
+
+logging:
+    level:
+        root: info
+        com.d7kj: debug
 # http://localhost:8081/manage/health    
 management:
     endpoints:
@@ -35,6 +39,13 @@ query:
 # web 服务器端口
 server:
     port: 80        
+    undertow:
+        accesslog:
+            enabled: true
+            dir: undertow-logs
+        io-threads: 8
+        #max-http-post-size: 0
+        worker-threads: 8
         
 spring:
     # 数据源

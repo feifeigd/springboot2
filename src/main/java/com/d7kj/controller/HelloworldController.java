@@ -1,5 +1,6 @@
 package com.d7kj.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -11,16 +12,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.d7kj.annotation.Function;
 
 @Controller
+@Slf4j
 public class HelloworldController {
-
-	Log log = LogFactory.getLog(HelloworldController.class);
 
 	/// 测试使用模板引擎Beetl
 	/// Model用于参数的时候, SpringMVC框架在调用方法前自动创建Model
 	@RequestMapping("/index.html")
 	public String index(Model model) {
 		log.debug("HelloworldController/index");
-		model.addAttribute("name", "hello, world");
+		model.addAttribute("name", "hello, world ");
 		return "/index.html";	// 返回模板路径
 	}
 	
