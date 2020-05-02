@@ -64,6 +64,12 @@ spring:
             max-active: 8
     servlet:
         # 文件上传
-        # 文件保存的路径
         multipart:
+            enabled: true
+            file-size-threshold: 0
+            # 文件保存的路径
             location: d:/
+            max-file-size: 1MB
+            max-request-size: 10MB
+            resolve-lazily: false
+

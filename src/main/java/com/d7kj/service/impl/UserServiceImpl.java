@@ -21,7 +21,7 @@ import com.d7kj.service.UserService;
 public class UserServiceImpl implements UserService {
 
 	//@Autowired
-	SQLManager sqlManager;
+	//SQLManager sqlManager;
 
 	@Autowired
 	CreditSystemService creditSystemService;
