@@ -22,9 +22,15 @@ endpoints:
             enabled: true
 
 logging:
+    #file: my.log
     level:
         root: info
         com.d7kj: debug
+    path: e:/log
+    pattern:
+        #console: %level %date{HH:mm:ss} %logger{20}.%M %L :%m%n
+        #file: %level %date{ISO8601} [%thread] %logger{20}.%M %L :%m%n
+
 # http://localhost:8081/manage/health    
 management:
     endpoints:
