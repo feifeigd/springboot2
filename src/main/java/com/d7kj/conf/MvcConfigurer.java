@@ -23,6 +23,24 @@ public class MvcConfigurer implements WebMvcConfigurer {
 		registration.addPathPatterns("/user/**");
 	}
 	
+
+	/// 跨域访问配置
+	@Override
+	public void addCorsMappings(CorsRegistry registry){
+
+	}
+
+	/// 格式化
+	@Override
+	public void addFormatters(FormatterRegistry registry){
+
+	}
+
+	/// URI 到视图的映射
+	public void addViewControllers(ViewControllerRegistry registry){
+
+	}
+
 	class SessionHandlerInterceptor implements HandlerInterceptor{
 		
 		/// 检查用户是否已经登录，如果未登录，重定向到登录页面

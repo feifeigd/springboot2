@@ -70,7 +70,10 @@ spring:
         #driver-class-name: org.postgresql.Driver
         
     # spring data jpa 打印sql语句
-    jpa: 
+    jpa:
+        hibernate:
+            # 自动建库
+            ddl-auto: update
         show-sql: true
 
     redis:
