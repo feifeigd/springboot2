@@ -1,9 +1,13 @@
-package com.d7kj.jpa;
+package com.d7kj.entity;
+
+import com.d7kj.entity.User;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
 @Entity
 public class Department {
     @Id
