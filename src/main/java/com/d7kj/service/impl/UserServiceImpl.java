@@ -3,8 +3,8 @@ package com.d7kj.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.d7kj.dao.UserRepository;
 import com.d7kj.service.CreditSystemService;
-import org.beetl.sql.core.SQLManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,7 +28,17 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserDao userDao;
-	
+
+	UserRepository userRepository;
+
+	public Integer addUser(User user){
+		userRepository.save(user);
+		Integer id = user.getId();
+		user.setName("1" + user.getName());
+		userRepository.save(user);
+		return id;
+	}
+
 	@Override
 	public List<User> allUser() {
 		return sampleUser(5);
