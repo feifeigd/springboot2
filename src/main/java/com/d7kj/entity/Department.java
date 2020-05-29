@@ -1,26 +1,27 @@
 package com.d7kj.entity;
 
-import com.d7kj.entity.User;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.Data;
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
-
-@Data
+@Table(name = "department")
 @Entity
-public class Department {
+@Data
+public class Department implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    @Column(name = "id", insertable = false, nullable = false)
+    private Integer id;
 
-    @Column
-    String name;
+    @Column(name = "name")
+    private String name;
 
-    @OneToMany(mappedBy = "department") // User的属性department
-    Set<User> users = new HashSet<>();
-
-    public Department(){
-
-    }
+    
 }

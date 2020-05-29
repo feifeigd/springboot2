@@ -74,6 +74,7 @@ spring:
         hibernate:
             # 自动建库
             ddl-auto: update
+        # 打印SQL 语句
         show-sql: true
 
     redis:
