@@ -14,17 +14,17 @@ public class ApiResponse<T> {
     private T data;
     private String sign;
 
-    public static <T> ApiResponse success(T data){
+    public static <T> ApiResponse<T> success(T data){
         return response(ApiCodeEnum.SUCCESS.getCode(), ApiCodeEnum.SUCCESS.getMsg(), data);
     }
 
-    public static <T> ApiResponse error(String code, String msg, T data){
+    public static <T> ApiResponse<T> error(String code, String msg, T data){
         return response(code, msg, null);
     }
 
-    public static <T> ApiResponse response(String code, String msg, T data){
+    public static <T> ApiResponse<T> response(String code, String msg, T data){
         ApiResult result = new ApiResult(code, msg);
-        ApiResponse response = new ApiResponse();
+        ApiResponse<T> response = new ApiResponse<T>();
         response.setResult(result);
         response.setData(data);
 
