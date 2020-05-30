@@ -59,8 +59,9 @@ public class MvcConfigurer implements WebMvcConfigurer {
 	}
 
 	/// URI 到视图的映射
+	@Override
 	public void addViewControllers(ViewControllerRegistry registry){
-
+		registry.addViewController("/").setViewName("index.html");
 	}
 
 	class SessionHandlerInterceptor implements HandlerInterceptor{
