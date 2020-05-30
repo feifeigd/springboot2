@@ -59,8 +59,9 @@ public class MvcConfigurer implements WebMvcConfigurer {
 	}
 
 	/// URI 到视图的映射
+	@Override
 	public void addViewControllers(ViewControllerRegistry registry){
-
+		registry.addViewController("/").setViewName("index.html");
 	}
 
 	class SessionHandlerInterceptor implements HandlerInterceptor{
@@ -95,7 +96,7 @@ public class MvcConfigurer implements WebMvcConfigurer {
 			long expireTime = notRepeatSubmit == null ? 5 * 60 * 1000 : notRepeatSubmit.value();
 
 			// 2. 请求间隔
-			long requestInterval = System.currentTimeMillis()- Long.valueOf(timestamp);
+			long requestInterval = System.currentTimeMillis()- Long.parseLong(timestamp);
 			Assert.isTrue(requestInterval < expireTime, "请求超时,请重新请求");
 
 			// 3. 校验token是否存在

@@ -1,13 +1,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
+	<properties>
+		<!-- <class_root>${basedir}/target/classes</class_root> -->
+		<!-- 开发的时候，拷贝到 src 里面 -->
+		<class_root>${basedir}/src/main/resources</class_root>
+	</properties>
+
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.2.6.RELEASE</version>
   </parent>
+
   <groupId>com.d7kj.learn</groupId>
   <artifactId>helloworld</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+
   <dependencies>
 	  <!-- 查ip -->
 	  <dependency>
@@ -157,6 +165,55 @@
                 <fork>true</fork>
             </configuration>
         </plugin>
+		<!-- 静态资源引用插件 -->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-resources-plugin</artifactId>
+			<executions>
+				<execution>
+					<id>copy-index.html</id>
+					<phase>compile</phase>
+					<goals>
+						<goal>copy-resources</goal>
+					</goals>
+					<configuration>
+						<outputDirectory>${class_root}/templates</outputDirectory>
+						<resources>
+							<resource>
+								<!-- 拷贝 vue 入口文件 -->
+								<directory>${basedir}/front/dist</directory>
+								<includes>
+									<include>index.html</include>
+								</includes>
+								<!-- 若已存在，则覆盖 -->
+								<filtering>true</filtering>
+							</resource>
+						</resources>
+					</configuration>
+				</execution>
+				<execution>
+					<id>copy-resources</id>
+					<phase>compile</phase>
+					<goals>
+						<goal>copy-resources</goal>
+					</goals>
+					<configuration>
+						<outputDirectory>${class_root}/static</outputDirectory>
+						<resources>
+							<resource>
+								<!-- 拷贝 vue 编译的文件 -->
+								<directory>${basedir}/front/dist</directory>
+								<excludes>
+									<exclude>index.html</exclude>
+								</excludes>
+								<!-- 若已存在，则覆盖 -->
+								<filtering>true</filtering>
+							</resource>
+						</resources>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
   	</plugins>
   </build>
 </project>

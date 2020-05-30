@@ -28,7 +28,7 @@ public class TokenController {
     @PostMapping("/api_token")
     public ApiResponse<AccessToken> apiToken(String appId, @RequestHeader("timestamp")String timestamp, @RequestHeader("sign")String sign){
         Assert.isTrue(!StringUtils.isEmpty(appId) && !StringUtils.isEmpty(timestamp) && !StringUtils.isEmpty(sign), "参数不能为空");
-        long requestInterval = System.currentTimeMillis() - Long.valueOf(timestamp);
+        long requestInterval = System.currentTimeMillis() - Long.parseLong(timestamp);
         Assert.isTrue(requestInterval < 5 * 60 * 1000, "请求过期，请重新请求");
 
         // 1. 根据appId查询数据库获取appSecret
