@@ -185,6 +185,7 @@
 								<includes>
 									<include>index.html</include>
 								</includes>
+								<!-- 若已存在，则覆盖 -->
 								<filtering>true</filtering>
 							</resource>
 						</resources>
@@ -205,6 +206,7 @@
 								<excludes>
 									<exclude>index.html</exclude>
 								</excludes>
+								<!-- 若已存在，则覆盖 -->
 								<filtering>true</filtering>
 							</resource>
 						</resources>
