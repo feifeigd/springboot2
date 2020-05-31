@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.servlet.error.AbstractErrorController;
+import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +35,7 @@ public class ErrorController extends AbstractErrorController {
 	
 	@RequestMapping(ERROR_PATH)
 	public ModelAndView getErrorPath(HttpServletRequest request, HttpServletResponse response) {
-		Map<String, Object> model = Collections.unmodifiableMap(getErrorAttributes(request, false));
+		Map<String, Object> model = Collections.unmodifiableMap(getErrorAttributes(request, ErrorAttributeOptions.defaults()));	// 不输出调用栈?
 		Throwable cause = getCause(request);
 		// HTTP状态码
 		int status = (int)model.get("status");
