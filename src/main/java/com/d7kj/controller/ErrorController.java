@@ -9,8 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.servlet.error.AbstractErrorController;
 import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
@@ -21,10 +20,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
+@Slf4j
 public class ErrorController extends AbstractErrorController {
 
 	static final String ERROR_PATH = "/error";
-	private Log log = LogFactory.getLog(ErrorController.class);
 	
 	@Autowired
 	private ObjectMapper objectMapper;
@@ -57,7 +56,7 @@ public class ErrorController extends AbstractErrorController {
 			return view;
 		}
 		// 如果是json请求,则返回一个json格式的错误
-		Map<String, Object> error = new HashMap<String, Object>();
+		Map<String, Object> error = new HashMap<>();
 		error.put("success", false);
 		error.put("errorMessage", errorMessage);
 		error.put("message", message);
@@ -96,7 +95,7 @@ public class ErrorController extends AbstractErrorController {
 		if(error != null) {
 			// MVC有可能会封装异常成ServletException,需要调用其getCause获取真正的异常
 			while(error instanceof ServletException && error.getCause() != null)
-				error = ((ServletException)error).getCause();
+				error = error.getCause();
 		}
 		return error;
 	}
