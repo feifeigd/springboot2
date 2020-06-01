@@ -23,21 +23,16 @@ import org.springframework.test.web.servlet.MockMvc;
 // 需要模拟测试的 Controller
 @WebMvcTest(UserController.class)
 public class UserControllerTest {
-
-    /*@Test
-    public void tt(){
-        String f = "";
-        assertEquals(f, f);
-    }*/
     @Autowired
     MockMvc mvc;
 
+    // 注入一个服务
     @MockBean
     UserService userService;
 
-
-    /*@Test
+    @Test
     public void testMvc() throws Exception{
+        // 至少要有一个 @Test
         int userId = 10;
         int expectedCredit = 100;
         // 模拟 userService
@@ -55,5 +50,5 @@ public class UserControllerTest {
         String path = "$.success";  // json路径
         mvc.perform(MockMvcRequestBuilders.get("/user/{id}/{name}", userId, name))
                 .andExpect(MockMvcResultMatchers.jsonPath(path).value(true));
-    }*/
+    }
 }
