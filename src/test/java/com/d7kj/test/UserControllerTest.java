@@ -2,11 +2,11 @@ package com.d7kj.test;
 
 import com.d7kj.controller.UserController;
 import com.d7kj.entity.User;
-import org.mockito.BDDMockito;
+
+import static junit.framework.TestCase.assertEquals;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
@@ -24,13 +24,19 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(UserController.class)
 public class UserControllerTest {
 
+    /*@Test
+    public void tt(){
+        String f = "";
+        assertEquals(f, f);
+    }*/
     @Autowired
     MockMvc mvc;
 
     @MockBean
     UserService userService;
 
-    @Test
+
+    /*@Test
     public void testMvc() throws Exception{
         int userId = 10;
         int expectedCredit = 100;
@@ -38,7 +44,7 @@ public class UserControllerTest {
         given(userService.getCredit(anyInt())).willReturn(100);
         // http 调用
         mvc.perform(MockMvcRequestBuilders.get("/user/{id}", userId))
-                .andExpect(MockMvcResultMatchers.content().string(String.valueOf(expectedCredit)));//*/
+                .andExpect(MockMvcResultMatchers.content().string(String.valueOf(expectedCredit)));
     }
 
     public void updateUser() throws Exception {
@@ -49,5 +55,5 @@ public class UserControllerTest {
         String path = "$.success";  // json路径
         mvc.perform(MockMvcRequestBuilders.get("/user/{id}/{name}", userId, name))
                 .andExpect(MockMvcResultMatchers.jsonPath(path).value(true));
-    }
+    }*/
 }

@@ -5,7 +5,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     //id 'java'
+    id("java")
     //id 'maven-publish'
+    id("maven-publish")
     id("org.springframework.boot") version "2.3.0.RELEASE"
     id("io.spring.dependency-management") version "1.0.9.RELEASE"
     kotlin("jvm") version "1.3.72"
@@ -22,27 +24,30 @@ repositories {
 
 dependencies {
     // groupId:artifactId:version
-    implementation ("cn.hutool:hutool-all:5.3.2")
-    implementation ("commons-lang:commons-lang:2.6")
+    implementation ("cn.hutool:hutool-all:5.3.5")
+    implementation ("org.apache.commons:commons-lang3:3.10")
+    //implementation ("commons-lang:commons-lang:2.6")
+    implementation ("org.apache.commons:commons-text:1.8")
     implementation ("com.ibeetl:beetl-framework-starter:1.2.30.RELEASE")
-    implementation ("com.squareup.okhttp3:okhttp:3.14.7")
-    implementation ("com.zaxxer:HikariCP:3.4.2")
-    implementation ("mysql:mysql-connector-java:8.0.19")
-    implementation ("org.lionsoul:ip2region:1.4")
+    implementation ("com.squareup.okhttp:okhttp:2.7.5")
+    implementation ("com.zaxxer:HikariCP:3.4.5")
+    implementation ("mysql:mysql-connector-java:8.0.20")
+    implementation ("org.lionsoul:ip2region:1.7.2")
     implementation ("org.projectlombok:lombok:1.18.12")
-    implementation ("org.springframework.boot:spring-boot-starter-actuator:2.2.6.RELEASE")
-    implementation ("org.springframework.boot:spring-boot-devtools:2.2.6.RELEASE")
-    implementation ("org.springframework.boot:spring-boot-starter-aop:2.2.6.RELEASE")
-    implementation ("org.springframework.boot:spring-boot-starter-data-jpa:2.2.6.RELEASE")
-    implementation ("org.springframework.boot:spring-boot-starter-data-redis:2.2.6.RELEASE")
-    implementation ("org.springframework.boot:spring-boot-starter-test:2.2.6.RELEASE")
-    implementation ("org.springframework.boot:spring-boot-starter-undertow:2.2.6.RELEASE")
-    implementation("org.springframework.boot:spring-boot-starter-web:2.2.6.RELEASE"){
+    implementation ("org.springframework.boot:spring-boot-starter-actuator:2.3.0.RELEASE")
+    implementation ("org.springframework.boot:spring-boot-starter-validation:2.3.0.RELEASE")
+    implementation ("org.springframework.boot:spring-boot-devtools:2.3.0.RELEASE")
+    implementation ("org.springframework.boot:spring-boot-starter-aop:2.3.0.RELEASE")
+    implementation ("org.springframework.boot:spring-boot-starter-data-jpa:2.3.0.RELEASE")
+    implementation ("org.springframework.boot:spring-boot-starter-data-redis:2.3.0.RELEASE")
+    implementation ("org.springframework.boot:spring-boot-starter-test:2.3.0.RELEASE")
+    implementation ("org.springframework.boot:spring-boot-starter-undertow:2.3.0.RELEASE")
+    implementation("org.springframework.boot:spring-boot-starter-web:2.3.0.RELEASE"){
         exclude (module = "spring-boot-starter-tomcat")
     }
-    implementation ("org.springframework:spring-jdbc:5.2.5.RELEASE")
-    implementation ("org.springframework:spring-tx:5.2.5.RELEASE")
-    implementation ("redis.clients:jedis:3.2.0")
+    implementation ("org.springframework:spring-jdbc:5.2.6.RELEASE")
+    implementation ("org.springframework:spring-tx:5.2.6.RELEASE")
+    implementation ("redis.clients:jedis:3.3.0")
 
     // lombok
     compileOnly ("org.projectlombok:lombok:1.18.12")
