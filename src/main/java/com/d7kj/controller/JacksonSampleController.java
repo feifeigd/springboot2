@@ -14,8 +14,8 @@ import java.util.Map;
 public class JacksonSampleController {
     @GetMapping("/now.json")
     public @ResponseBody
-    Map now(){
-        Map map = new HashMap();
+    Map<String, Date> now(){
+        Map<String, Date> map = new HashMap<String, Date>();
         map.put("date", new Date());
         return map;
     }

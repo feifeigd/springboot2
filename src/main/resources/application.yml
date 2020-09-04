@@ -49,6 +49,8 @@ query:
     
 # web 服务器端口
 server:
+    error:
+        path: /error
     port: 80        
     undertow:
         accesslog:

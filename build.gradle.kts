@@ -41,10 +41,10 @@ dependencies {
     implementation ("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation ("org.springframework.boot:spring-boot-starter-data-redis")
     implementation ("org.springframework.boot:spring-boot-starter-test")
-    implementation("org.springframework.boot:spring-boot-starter-websocket")
     implementation ("org.springframework.boot:spring-boot-starter-undertow")
-    implementation("org.springframework.boot:spring-boot-starter-web"){
-        // exclude (module = "spring-boot-starter-tomcat")
+    implementation ("org.springframework.boot:spring-boot-starter-websocket")
+    implementation ("org.springframework.boot:spring-boot-starter-web"){
+        exclude (module = "spring-boot-starter-tomcat")
     }
     implementation ("org.springframework:spring-jdbc:5.2.6.RELEASE")
     implementation ("org.springframework:spring-tx:5.2.6.RELEASE")

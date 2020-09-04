@@ -24,11 +24,11 @@ public class RedisCacheConfiguration {
     /**
      * 支持存储对象
      */
-    @Bean
+    /*@Bean
     public RedisTemplate<String, String> redisTemplate(){
         RedisTemplate<String, String> redisTemplate = new StringRedisTemplate();
         redisTemplate.setConnectionFactory(jedisConnectionFactory());
-        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY)
             .activateDefaultTyping(objectMapper.getPolymorphicTypeValidator(), ObjectMapper.DefaultTyping.NON_FINAL);
@@ -37,7 +37,7 @@ public class RedisCacheConfiguration {
         redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
-    }
+    }*/
 
     @Bean
     public ObjectRedisTemplate objectRedisTemplate(@Autowired RedisConnectionFactory redisConnectionFactory){

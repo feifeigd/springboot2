@@ -89,7 +89,7 @@ public class MvcConfigurer implements WebMvcConfigurer {
 	@Component
 	public class TokenInterceptor extends HandlerInterceptorAdapter{
 		// TOOD redis还没配置好 redisTemplate
-		// @Autowired
+		@Autowired
 		private RedisTemplate redisTemplate;
 
 		@Override
@@ -110,7 +110,7 @@ public class MvcConfigurer implements WebMvcConfigurer {
 			Assert.isTrue(requestInterval < expireTime, "请求超时,请重新请求");
 
 			// 3. 校验token是否存在
-			ValueOperations<String, TokenInfo> tokenRedis = redisTemplate.opsForValue();
+			/*ValueOperations<String, TokenInfo> tokenRedis = redisTemplate.opsForValue();
 			TokenInfo tokenInfo = tokenRedis.get(token);
 			Assert.notNull(tokenInfo, "token错误");
 
@@ -127,7 +127,7 @@ public class MvcConfigurer implements WebMvcConfigurer {
 				boolean exists = redisTemplate.hasKey(sign);
 				Assert.isTrue(!exists, "请勿重复提交");
 				signRedis.set(sign, 0, expireTime, TimeUnit.MILLISECONDS);
-			}
+			}*/
 			return super.preHandle(request, response, handler);
 		}
 	}
