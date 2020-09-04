@@ -1,14 +1,18 @@
 package com.d7kj.conf;
 
+import com.d7kj.redis.ObjectRedisTemplate;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializer;
 
 @Configuration
 public class RedisCacheConfiguration {
@@ -33,5 +37,19 @@ public class RedisCacheConfiguration {
         redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
+    }
+
+    @Bean
+    public ObjectRedisTemplate objectRedisTemplate(@Autowired RedisConnectionFactory redisConnectionFactory){
+        ObjectRedisTemplate objectRedisTemplate = new ObjectRedisTemplate();
+        objectRedisTemplate.setConnectionFactory(redisConnectionFactory);
+
+        objectRedisTemplate.setKeySerializer(RedisSerializer.string());
+        objectRedisTemplate.setValueSerializer(RedisSerializer.java());
+
+        objectRedisTemplate.setHashKeySerializer(RedisSerializer.string());
+        objectRedisTemplate.setHashValueSerializer(RedisSerializer.java());
+
+        return  objectRedisTemplate;
     }
 }

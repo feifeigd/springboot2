@@ -3,10 +3,12 @@ package com.d7kj.test;
 import com.d7kj.controller.UserController;
 import com.d7kj.entity.User;
 
-import static junit.framework.TestCase.assertEquals;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
@@ -21,7 +23,10 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @RunWith(SpringRunner.class)
 // 需要模拟测试的 Controller
-@WebMvcTest(UserController.class)
+//@WebMvcTest(UserController.class)
+@SpringBootTest(classes = UserController.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureMockMvc
+@EnableAutoConfiguration
 public class UserControllerTest {
     @Autowired
     MockMvc mvc;

@@ -54,10 +54,10 @@ server:
         accesslog:
             enabled: true
             dir: undertow-logs
-        io-threads: 8
         #max-http-post-size: 0
-        worker-threads: 8
-        
+        threads:
+            worker: 8
+            io: 8
 spring:
     # 数据源
     datasource:

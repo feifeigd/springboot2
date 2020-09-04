@@ -1,7 +1,8 @@
 package com.d7kj.format;
 
-import org.apache.commons.text.StringEscapeUtils;
+// import org.apache.commons.lang3.StringEscapeUtils;
 import org.beetl.core.Format;
+import org.apache.commons.text.StringEscapeUtils;
 
 /// 防止XSS攻击
 public class XXSDefenderFormat implements Format {

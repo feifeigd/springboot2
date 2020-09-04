@@ -7,7 +7,9 @@ import com.d7kj.controller.ApiUtil;
 import com.d7kj.controller.MD5Util;
 import com.d7kj.controller.NotRepeatSubmit;
 import com.d7kj.controller.TokenInfo;
+import com.d7kj.redis.RequestLimitInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -30,6 +32,11 @@ public class MvcConfigurer implements WebMvcConfigurer {
 	@Autowired
 	private TokenInterceptor tokenInterceptor;
 
+	@Bean
+	public RequestLimitInterceptor requestLimitInterceptor(){
+		return new RequestLimitInterceptor();
+	}
+
 	/// 拦截器
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -44,6 +51,8 @@ public class MvcConfigurer implements WebMvcConfigurer {
 		registry.addInterceptor(tokenInterceptor)
 				.addPathPatterns("/api/**")
 				.excludePathPatterns(excludePathPatterns);
+
+		registry.addInterceptor(this.requestLimitInterceptor()).addPathPatterns("/test");
 	}
 
 	/// 跨域访问配置
@@ -79,7 +88,8 @@ public class MvcConfigurer implements WebMvcConfigurer {
 
 	@Component
 	public class TokenInterceptor extends HandlerInterceptorAdapter{
-		@Autowired
+		// TOOD redis还没配置好 redisTemplate
+		// @Autowired
 		private RedisTemplate redisTemplate;
 
 		@Override

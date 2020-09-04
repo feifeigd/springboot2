@@ -1,5 +1,6 @@
 package com.d7kj.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,10 @@ public class TestController {
 	@GetMapping("/get/{id}.json")
 	public @ResponseBody User getById(@PathVariable int id){
 		return userService.getUserById(id);
+	}
+
+	@GetMapping
+	public Object test(){
+		return Collections.singletonMap("success", true);
 	}
 }

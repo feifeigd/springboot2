@@ -8,8 +8,8 @@ plugins {
     id("java")
     //id 'maven-publish'
     id("maven-publish")
-    id("org.springframework.boot") version "2.3.0.RELEASE"
-    id("io.spring.dependency-management") version "1.0.9.RELEASE"
+    id("org.springframework.boot") version "2.3.3.RELEASE"
+    id("io.spring.dependency-management") version "1.0.10.RELEASE"
     kotlin("jvm") version "1.3.72"
     kotlin("plugin.spring") version "1.3.72"
 }
@@ -34,16 +34,17 @@ dependencies {
     implementation ("mysql:mysql-connector-java:8.0.20")
     implementation ("org.lionsoul:ip2region:1.7.2")
     implementation ("org.projectlombok:lombok:1.18.12")
-    implementation ("org.springframework.boot:spring-boot-starter-actuator:2.3.0.RELEASE")
-    implementation ("org.springframework.boot:spring-boot-starter-validation:2.3.0.RELEASE")
-    implementation ("org.springframework.boot:spring-boot-devtools:2.3.0.RELEASE")
-    implementation ("org.springframework.boot:spring-boot-starter-aop:2.3.0.RELEASE")
-    implementation ("org.springframework.boot:spring-boot-starter-data-jpa:2.3.0.RELEASE")
-    implementation ("org.springframework.boot:spring-boot-starter-data-redis:2.3.0.RELEASE")
-    implementation ("org.springframework.boot:spring-boot-starter-test:2.3.0.RELEASE")
-    implementation ("org.springframework.boot:spring-boot-starter-undertow:2.3.0.RELEASE")
-    implementation("org.springframework.boot:spring-boot-starter-web:2.3.0.RELEASE"){
-        exclude (module = "spring-boot-starter-tomcat")
+    implementation ("org.springframework.boot:spring-boot-starter-actuator")
+    implementation ("org.springframework.boot:spring-boot-starter-validation")
+    implementation ("org.springframework.boot:spring-boot-devtools")
+    implementation ("org.springframework.boot:spring-boot-starter-aop")
+    implementation ("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation ("org.springframework.boot:spring-boot-starter-data-redis")
+    implementation ("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.springframework.boot:spring-boot-starter-websocket")
+    implementation ("org.springframework.boot:spring-boot-starter-undertow")
+    implementation("org.springframework.boot:spring-boot-starter-web"){
+        // exclude (module = "spring-boot-starter-tomcat")
     }
     implementation ("org.springframework:spring-jdbc:5.2.6.RELEASE")
     implementation ("org.springframework:spring-tx:5.2.6.RELEASE")
@@ -63,18 +64,20 @@ group = "com.d7kj.learn"
 version = "0.0.1-SNAPSHOT"
 // sourceCompatibility = "1.8"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
-/*
+
 publishing {
-    publications {
+    publications {/*
         maven(MavenPublication) {
             from(components.java)
         }
+*/
     }
 }
 
-*/
 tasks.withType(JavaCompile::class) {
     options.encoding = "UTF-8"
+    options.compilerArgs.add("-Xlint:unchecked")
+    options.compilerArgs.add("-Xlint:deprecation")
 }
 
 /*apply(plugin = "org.springframework.boot")*/
