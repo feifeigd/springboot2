@@ -1,34 +1,28 @@
 package com.d7kj.util;
 
-import org.lionsoul.ip2region.DataBlock;
-import org.lionsoul.ip2region.DbConfig;
-import org.lionsoul.ip2region.DbMakerConfigException;
-import org.lionsoul.ip2region.DbSearcher;
+import org.lionsoul.ip2region.xdb.Header;
+import org.lionsoul.ip2region.xdb.Searcher;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Date;
 
 /// ip换算城市
-/// TODO 获取国家和省份
+/// https://gitee.com/lionsoul/ip2region
+/// 默认的格式：
+/// 国家|区域|省份|城市|ISP
 public class IpUtil {
+    static Searcher searcher;
 
-    static DbSearcher dbSearcher;
-
-    public static void init(String path){
-        try {
-            dbSearcher = new DbSearcher(new DbConfig(), path);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (DbMakerConfigException e) {
-            e.printStackTrace();
-        }
+    public static void init(String dbPath) throws IOException {
+        byte[] buff = Searcher.loadContentFromFile(dbPath);
+        searcher = Searcher.newWithBuffer(buff);
+        Header header = Searcher.loadHeaderFromFile(dbPath);
+        Date date = new Date((long)header.createdAt * 1000);
+        System.out.println("IpUtil Db info: " + header + date);
     }
 
-    public static String getCityInfoByIp(String ip) throws IOException {
-        if (null == dbSearcher)return "未知";
-        DataBlock dataBlock = dbSearcher.btreeSearch(ip);
-        String region = dataBlock.getRegion().substring(0, dataBlock.getRegion().lastIndexOf("!"));
-        String city = region.substring(region.lastIndexOf("|") + 1);
-        return  city;
+    public static String getAddressInfoByIp(String ip) throws Exception {
+        if (null == searcher)return "未知";
+        return searcher.search(ip);
     }
 }
