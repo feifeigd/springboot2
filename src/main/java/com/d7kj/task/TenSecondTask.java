@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class TenSecondTask {
-    @Scheduled(fixedRate = 10000)
+    @Scheduled(fixedRate = 10 * 1000)
     public void execute(){
         log.info("TenSecondTask.execute()");
     }

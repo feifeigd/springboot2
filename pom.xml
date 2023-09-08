@@ -96,15 +96,19 @@
 	    <artifactId>beetl-framework-starter</artifactId>
 	    <version>1.2.30.RELEASE</version>
 	</dependency>
-    <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-    </dependency>
-    <!-- Freemarker模板引擎 ,后缀 .ftl
-    <dependency>
-    	<groupId>org.springframework.boot</groupId>
-    	<artifactId>spring-boot-starter-freemarker</artifactId>
-    </dependency>-->
+	  <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+	  <dependency>
+		  <groupId>org.projectlombok</groupId>
+		  <artifactId>lombok</artifactId>
+		  <version>1.18.28</version>
+		  <scope>provided</scope>
+	  </dependency>
+
+	  <!-- Freemarker模板引擎 ,后缀 .ftl
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-freemarker</artifactId>
+      </dependency>-->
     <!-- 事务支持 
     <dependency>
     	<groupId>org.springframework.boot</groupId>
