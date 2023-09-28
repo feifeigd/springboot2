@@ -1,9 +1,9 @@
 package com.d7kj.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.beetl.ext.simulate.WebSimulate;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+//import org.beetl.ext.simulate.WebSimulate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class SimulateController {
 	
-	@Autowired
-	private WebSimulate webSimulate;
+//	@Autowired
+//	private WebSimulate webSimulate;
 
 	/// 未实现的api
 	// http://localhost/api/simulatejson.html
@@ -22,7 +22,7 @@ public class SimulateController {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/json;charset=UTF-8");
 		
-		webSimulate.execute(request, response);
+//		webSimulate.execute(request, response);
 	}
 	
 	/// 未实现的页面请求
@@ -33,6 +33,6 @@ public class SimulateController {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		webSimulate.execute(request, response);
+//		webSimulate.execute(request, response);
 	}
 }

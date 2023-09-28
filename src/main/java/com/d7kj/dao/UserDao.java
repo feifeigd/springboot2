@@ -2,12 +2,12 @@ package com.d7kj.dao;
 
 import java.util.List;
 
-import org.beetl.sql.core.annotatoin.SqlResource;
-import org.beetl.sql.core.mapper.BaseMapper;
+import org.beetl.sql.mapper.annotation.SqlResource;
+import org.beetl.sql.mapper.BaseMapper;
 
 import com.d7kj.entity.User;
 
-// /template/sql/www.user.md 文件路径
+// /resources/sql/www.user.md 文件路径
 @SqlResource("www.user")
 // 任何继承BaseMapper的类，将自动具备实体内置的CRUD功能
 public interface UserDao extends BaseMapper<User> {

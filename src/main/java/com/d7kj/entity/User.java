@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import lombok.Data;
 import org.springframework.data.jpa.domain.AbstractAuditable;
 
-@Table(name = "user")
+//@Table(name = "user")
 @Entity
 @Data
 public class User implements Serializable {

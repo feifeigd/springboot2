@@ -6,8 +6,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 
 import org.beetl.core.GroupTemplate;
-import org.beetl.ext.spring.BeetlGroupUtilConfiguration;
-import org.beetl.ext.spring.BeetlSpringViewResolver;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -49,13 +48,13 @@ public class BeetlExtConfig {
 	 * 
 	 * @return
 	 */
-	@Bean(name = "beetlViewResolver")
-	public BeetlSpringViewResolver getBeetlSpringViewResolver(BeetlGroupUtilConfiguration beetlGroupUtilConfiguration) {
-		BeetlSpringViewResolver beetlSpringViewResolver = new BeetlSpringViewResolver();
-		beetlSpringViewResolver.setContentType("text/html;charset=UTF-8");
-		beetlSpringViewResolver.setOrder(0);
-		beetlSpringViewResolver.setSuffix(templatesViewSuffix);
-		beetlSpringViewResolver.setConfig(beetlGroupUtilConfiguration);
-		return beetlSpringViewResolver;
-	}
+//	@Bean(name = "beetlViewResolver")
+//	public BeetlSpringViewResolver getBeetlSpringViewResolver(BeetlGroupUtilConfiguration beetlGroupUtilConfiguration) {
+//		BeetlSpringViewResolver beetlSpringViewResolver = new BeetlSpringViewResolver();
+//		beetlSpringViewResolver.setContentType("text/html;charset=UTF-8");
+//		beetlSpringViewResolver.setOrder(0);
+//		beetlSpringViewResolver.setSuffix(templatesViewSuffix);
+//		beetlSpringViewResolver.setConfig(beetlGroupUtilConfiguration);
+//		return beetlSpringViewResolver;
+//	}
 }

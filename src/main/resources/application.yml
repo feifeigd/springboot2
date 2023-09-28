@@ -84,6 +84,7 @@ spring:
         # 打印SQL 语句
         show-sql: true
 
+    # org.springframework.boot.autoconfigure.data.redis.RedisProperties
     redis:
         host: 127.0.0.1
         #password: 123456

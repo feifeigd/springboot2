@@ -1,7 +1,7 @@
 package com.d7kj.conf;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import com.d7kj.controller.ApiUtil;
 import com.d7kj.controller.MD5Util;
@@ -20,7 +20,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import com.d7kj.entity.User;
 import org.springframework.web.servlet.config.annotation.*;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import java.util.concurrent.TimeUnit;
 
@@ -87,7 +86,7 @@ public class MvcConfigurer implements WebMvcConfigurer {
 	}
 
 	@Component
-	public class TokenInterceptor extends HandlerInterceptorAdapter{
+	public class TokenInterceptor implements HandlerInterceptor {
 		// TOOD redis还没配置好 redisTemplate
 		@Autowired
 		private RedisTemplate redisTemplate;
@@ -128,7 +127,8 @@ public class MvcConfigurer implements WebMvcConfigurer {
 				Assert.isTrue(!exists, "请勿重复提交");
 				signRedis.set(sign, 0, expireTime, TimeUnit.MILLISECONDS);
 			}*/
-			return super.preHandle(request, response, handler);
+//			return super.preHandle(request, response, handler);
+			return true;
 		}
 	}
 }

@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
 
-@Table(name = "department")
+//@Table(name = "department")
 @Entity
 @Data
 public class Department implements Serializable {

@@ -1,19 +1,19 @@
 package com.d7kj.redis;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.HandlerInterceptor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 /// 限流器
 @Slf4j
-public class RequestLimitInterceptor extends HandlerInterceptorAdapter {
+public class RequestLimitInterceptor implements HandlerInterceptor {
     @Autowired
     private ObjectRedisTemplate objectRedisTemplate;
 

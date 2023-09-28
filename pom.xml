@@ -9,7 +9,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.3.3.RELEASE</version>
+    <version>3.1.4</version>
   </parent>
 
   <groupId>com.d7kj.learn</groupId>
@@ -83,19 +83,18 @@
 		  </exclusions>
 	  </dependency>
 
+	  <!-- https://mvnrepository.com/artifact/com.ibeetl/sql-springboot-starter -->
 	  <dependency>
 		  <groupId>redis.clients</groupId>
 		  <artifactId>jedis</artifactId>
 		  <version>3.2.0</version>
-		  <type>jar</type>
-		  <scope>compile</scope>
 	  </dependency>
-	<!-- https://mvnrepository.com/artifact/com.ibeetl/beetl-framework-starter -->
-	<dependency>
-	    <groupId>com.ibeetl</groupId>
-	    <artifactId>beetl-framework-starter</artifactId>
-	    <version>1.2.30.RELEASE</version>
-	</dependency>
+	  <dependency>
+		  <groupId>com.ibeetl</groupId>
+		  <artifactId>sql-springboot-starter</artifactId>
+		  <version>3.25.6-RELEASE</version>
+	  </dependency>
+
 	  <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 	  <dependency>
 		  <groupId>org.projectlombok</groupId>
@@ -109,11 +108,7 @@
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-starter-freemarker</artifactId>
       </dependency>-->
-    <!-- 事务支持 
-    <dependency>
-    	<groupId>org.springframework.boot</groupId>
-    	<artifactId>spring-boot-starter-jdbc</artifactId>
-    </dependency> -->
+
     <!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
 	<dependency>
 	    <groupId>commons-lang</groupId>
@@ -125,30 +120,21 @@
 	    <groupId>com.zaxxer</groupId>
 	    <artifactId>HikariCP</artifactId>
 	    </dependency>
-	
-	<!-- 数据库驱动 https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-	<!-- -->
-	<dependency>
-	    <groupId>mysql</groupId>
-	    <artifactId>mysql-connector-java</artifactId>
-	</dependency>
-	
-	<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql
-	<dependency>
-	    <groupId>org.postgresql</groupId>
-	    <artifactId>postgresql</artifactId>
-	</dependency>-->
-	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-jdbc</artifactId>
-	</dependency>
-	
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-tx</artifactId>
-	</dependency>
+
+	  <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+	  <dependency>
+		  <groupId>com.mysql</groupId>
+		  <artifactId>mysql-connector-j</artifactId>
+		  <version>8.1.0</version>
+	  </dependency>
+
+
+	  <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql
+      <dependency>
+          <groupId>org.postgresql</groupId>
+          <artifactId>postgresql</artifactId>
+      </dependency>-->
+
 	<!--<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -158,6 +144,26 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-actuator</artifactId>
 	</dependency>
+	  <!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
+	  <dependency>
+		  <groupId>javax.persistence</groupId>
+		  <artifactId>javax.persistence-api</artifactId>
+		  <version>2.2</version>
+	  </dependency>
+	  <!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+	  <dependency>
+		  <groupId>javax.annotation</groupId>
+		  <artifactId>javax.annotation-api</artifactId>
+		  <version>1.3.2</version>
+	  </dependency>
+	  <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+	  <dependency>
+		  <groupId>jakarta.servlet</groupId>
+		  <artifactId>jakarta.servlet-api</artifactId>
+		  <version>6.0.0</version>
+		  <scope>provided</scope>
+	  </dependency>
+
   </dependencies>
   
   <build>
@@ -175,18 +181,6 @@
         <plugin>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
-            <configuration>
-            	<!-- 
-            	-Xdebug是通知JVM工作在DEBUG模式下  
-            	-Xrunjdwp是通知JVM使用(Java debug wire protocol)来运行调试环境 
-            	transport指定了调试数据的传送方式,dt_socket是指用SOCKET模式  
-            	server参数是指是否支持在server模式的VM中
-            	suspend指明，是否在调试客户端建立起来后，再执行VM，如果为y，那么当前的VM就是suspend直到有debug client连接进来才开始执行程序。如果你的程序不是服务器监听模式并且很快就执行完毕的，那么可以选择在y来阻塞它的启动
-            	address=5005 调试服务器的端口号，客户端用来连接服务器的端口号
-            	
-            	<jvmArguments>-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005</jvmArguments>-->
-                <fork>true</fork>
-            </configuration>
         </plugin>
 		<!-- 静态资源引用插件 -->
 		<plugin>
